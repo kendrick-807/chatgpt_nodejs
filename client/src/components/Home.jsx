@@ -1,48 +1,65 @@
 
 import { Link } from "react-router-dom";
 // import styles from './Home.module.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
+import axios from "axios";
 
-function handleChange (e) {
-    this.setState({[e.target.name]: e.target.value});
-}
 
-function handleSubmit(e) {
-    alert('A form was submitted: ' + this.state);
 
-    fetch('http://localhost:3000/store-data', {
-        method: 'POST',
-        // We convert the React state to JSON and send it as the POST body
-        body: JSON.stringify(this.state)
-    }).then(function(response) {
-        console.log(response)
-        return response.json();
-    });
 
-    e.preventDefault();
-}
 
 const Home = () => {
-  //   const [message, setMessage] = useState("");
-  //
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/message")
-  //       .then((res) => res.json())
-  //       .then((data) => setMessage(data.message));
-  // }, []);
+    const [question, setQuestion] = useState({});
+    const array = [];
+    const handleChange = (e) => {
+        e.preventDefault();
+
+        setQuestion({
+            question: e.target.value,
+        });
+    };
+
+    let customConfig = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+            axios
+                .post(`http://localhost:8000/api/getAnswer`, question,customConfig)
+                .then((res) => {
+                    console.log(res);
+                    console.log(res.data);
+                    document.getElementById("testing").innerHTML = res.data.message;
+                    array.push(res.data.message);
+                    for(let i=0; i< array.length; i++){
+                        console.log(array[i]);
+                    }
+                });
+
+
+        };
 
     return (
-
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="App">
+            <form onSubmit={submitForm}>
                 <label>
-                    Name:
-                    <input type="text" value={this.state.value} name="name" onChange={handleChange} />
+                    User Name:
+                    <input type="text" name="question" onChange={handleChange} />
                 </label>
-                <input type="submit" value="Submit" />
+                <button type="submit">Add</button>
             </form>
+            <h1 id="testing"></h1>
+            <ol>
+                {array.map((array) => (
+                    <li>{array}</li>
+                ))}
+            </ol>
         </div>
     );
-};
+}
 
 export default Home;
