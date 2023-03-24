@@ -6,7 +6,6 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-
 // import Home component
 import Home from "./components/Home";
 

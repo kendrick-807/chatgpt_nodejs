@@ -2,9 +2,8 @@ const methods = {};
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
 });
-let ans;
 const openai = new OpenAIApi(configuration);
 methods.getAnswer = (q) => {
     return new Promise(async(resolve, reject) => {
