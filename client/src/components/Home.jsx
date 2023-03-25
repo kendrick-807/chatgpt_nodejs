@@ -1,6 +1,3 @@
-
-
-// import styles from './Home.module.css';
 import React, { useState, useEffect} from "react";
 import axios from "axios";
 
@@ -52,8 +49,6 @@ const Home = () => {
         axios
             .post(`http://localhost:8000/api/getAnswer`, question, customConfig)
             .then((res) => {
-                // console.log(res);
-                // console.log(res.data);
                 questionArr.push(question.toString());
                 answerArr.push(res.data.message);
                 update(question,res.data.message);

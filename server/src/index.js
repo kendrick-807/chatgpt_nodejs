@@ -4,9 +4,6 @@ const cors = require("cors");
 const app = express();
 const bodyParser = require('body-parser');
 const path = require("path")
-const uuid = require('uuid-random');
-const io = require('socket.io')
-const { uniqueNamesGenerator, adjectives, colors, animals, names } = require('unique-names-generator');
 
 app.use(cors());
 app.use(express.json());
@@ -15,8 +12,6 @@ const chatRoute = require('./chatRoute');
 app.use("/api",chatRoute);
 const getAns = require( './chatController');
 
-var chatRoomData = [];
-var connectedClients = {};
 
 app.get("/", (req, res) => {
     console.log("hello!")

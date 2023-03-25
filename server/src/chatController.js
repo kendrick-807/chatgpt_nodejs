@@ -27,4 +27,3 @@ methods.getAnswer = (q) => {
 
 
 module.exports = methods;
-// module.exports = getAns();
