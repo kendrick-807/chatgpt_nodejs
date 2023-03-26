@@ -1,25 +1,28 @@
 .message-input-container {
     display: flex;
     gap: 4px;
+
 }
 
 .message-input {
     padding: 12px 8px;
     flex: 1;
-    background: gray;
+    background: lightgray;
+    border: 3px solid gold;
     border-radius: 10px;
 }
 
 .send-message {
     padding: 12px 14px;
-    background: gray;
+    background: lightcyan;
+    border: 3px solid gold;
     border-radius: 10px;
     cursor: pointer;
 }
 
 
 .messages-container {
-    width: 90%;
+    width: 97.8%;
     padding: 16px;
     flex-grow: 1;
     border: 1px solid gray;
@@ -45,34 +48,30 @@
 }
 
 .message {
-    padding: 8px 16px;
+    /*padding: 8px 16px;*/
     margin-bottom: 8px;
-    background: gray;
+    background: lightgray;
     border-radius: 10px;
     text-align: left;
 }
 
-.own-message {
-    background: blue;
-    align-self: flex-end;
-    text-align: right;
-}
 
 .sender {
     margin-bottom: 8px;
 }
 
 li{
-    margin:50px;
-    padding: 30px;
-    background: #61dafb;
+    margin-top:50px;
     list-style: none;
     float: left;
     text-align: left;
-    font-size: 2.7em;
-    font-weight: 300;
+    font: 400 1.3em 'Open Sans', sans-serif;
     color: black;
     width: auto;
-    border:1px  solid #ddd;
-    -moz-box-shadow: 0px 0px 8px  #fff;
 }
+
+span{
+    margin-left:50%;
+    opacity: 0.5;
+}
+
