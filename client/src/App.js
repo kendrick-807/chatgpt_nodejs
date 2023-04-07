@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 // import Home component
 import Home from "./components/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
     return (
@@ -14,6 +16,8 @@ function App() {
             <Router>
                 <Routes>
                     <Route path='/' element={<Home/>} />
+                    <Route path='/register' element={<Register/>} />
+                    <Route path='/login' element={<Login/>} />
 
                     {/* If any route mismatches the upper
           route endpoints then, redirect triggers
