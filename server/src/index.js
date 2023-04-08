@@ -13,16 +13,35 @@ app.use("/api",chatRoute);
 const getAns = require( './chatController');
 
 
+// const mysql = require('mysql');
+// let connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'kendrick123'
+// });
+//
+// connection.connect(function(err) {
+//     if (err) throw err;
+//     console.log("Connected!");
+//     con.query("ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'");
+//     con.query("flush privileges;")
+//     connection.query("CREATE DATABASE mydb", function (err, result) {
+//         if (err) throw err;
+//         console.log("Database created");
+//     });
+// });
+
+
 app.get("/", (req, res) => {
     console.log("hello!")
 });
 
 //
-// app.post('/message',  (req, res) => {
-//     const car = req.body;  // Probably unsafe to treat the entire body as a car object, but will do for the task
-//     console.log(car);
-//
-// });
+app.post("/register",  (req, res) => {
+    const car = req.body;  // Probably unsafe to treat the entire body as a car object, but will do for the task
+    console.log(car);
+
+});
 
 app.get('/ans',(req, res) => {
     let answer = getAns;
